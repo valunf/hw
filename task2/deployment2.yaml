@@ -25,4 +25,4 @@ spec:
       volumes:
         - name: config-nginx
           configMap:
-            name: nginx-configmap2
+            name: nginx-configmap
