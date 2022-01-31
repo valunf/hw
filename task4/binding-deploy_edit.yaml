@@ -1,0 +1,23 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: deployment_edit
+  namespace: default
+rules:
+- apiGroups: ["", "apps"]
+  resources: ["pods", "deployment"]
+  verbs: ["*"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata: 
+  name: deploy_edit
+  namespace: default
+subjects:
+- kind: User
+  name: deploy_edit
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: deployment_edit
+  apiGroup: rbac.authorization.k8s.io
